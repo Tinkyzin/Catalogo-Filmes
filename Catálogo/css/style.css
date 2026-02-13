@@ -114,6 +114,12 @@ body {
     cursor:pointer;
     display: flex;
 }
-.card hover {
+card p {
+    transform:translateY(100%);
+}
+card p:hover{
+    transform : translateY(0);
+}
 
 }
+
