@@ -1,12 +1,15 @@
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap');
 :root {
-    --verde: #00ff40f5;
-    --cinza-dark: #121212;
-    --cinza-light: #1e1e1e;
+    --verde: #6d00fc;
+    --cinza-dark: #000000;
+    --cinza-light: #0f0f0f;
     --branco: #ffffff;
 }
 
 body {
-    font-family: 'Poppins', sans-serif;
+    font-family: "Oswald", sans-serif;
+    font-optical-sizing: auto;
+    font-style: normal;
     background-color: var(--cinza-dark);
     color: var(--branco);
     min-height: 100vh;
@@ -37,9 +40,10 @@ body {
     flex-wrap: wrap;
 }
 
-.logo span {
-    color: var(--verde);
-}
+.logo img {
+    width: 120px;
+    height: 60px;
+} 
 .menu{
     display:flex;
     gap: 1rem;
@@ -89,4 +93,27 @@ body {
     padding:1rem;
     border-top:2px solid var (--verde);
     font-size: 0.8rem;
+}
+#filmesGrid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 2rem;
+    padding: 2rem;
+}
+.card img {
+    width: 180px;
+    height: 180px;
+}
+.card {
+    background: var(--cinza-light);
+    width: 120px;
+    height: 180px;
+    border-radius: 12px;
+    overflow:hidden;
+    cursor:pointer;
+    display: flex;
+}
+.card hover {
+
 }
