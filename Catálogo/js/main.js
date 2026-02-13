@@ -1,4 +1,4 @@
-const API_KEY ="9ed4d53db23dc98cfda64348b807b218";
+const API_KEY ="a3fda9b9d1d0aaee95df37313c16684e";
 const BASE_URL = "https://api.themoviedb.org/3";
 const IMAGE_URL = "https://image.tmdb.org/t/p/w500";
 
@@ -6,7 +6,7 @@ const campoPesquisa = document.getElementById("campoPesquisa");
 const botaoPesquisa = document.getElementById("botaoPesquisa");
 const filmesGrid =document.getElementById("filmesGrid");
 
-async function requisicao(url) {
+async function requisicaoFilmes(url) {
     try{
         const response = await fetch(url);
         if (!response.ok) {
@@ -27,8 +27,7 @@ function buscaFilme() {
         return;
     }
     console.log("pesquisando por:", informacao);
-    const url = `${BASE_URL}/search/movie?api_key=${API_KEY}
-    &query=${encodeURIComponent(informacao)}&language=pt-BR`;
+    const url = `${BASE_URL}/search/movie?api_key=${API_KEY}&query=${encodeURIComponent(informacao)}&language=pt-BR`;
     requisicaoFilmes(url);
     campoPesquisa.value ="";
 }
