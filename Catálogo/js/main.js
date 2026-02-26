@@ -1,4 +1,4 @@
-const API_KEY = "9ed4d53db23dc98cfda64348b807b218";
+const API_KEY = "a3fda9b9d1d0aaee95df37313c16684e";
 const BASE_URL = "https://api.themoviedb.org/3";
 const IMAGE_URL = "https://image.tmdb.org/t/p/w500";
 
@@ -18,7 +18,7 @@ const IMAGE_URL = "https://image.tmdb.org/t/p/w500";
             renderizarMidia(data.results);
         } catch (error) {
             console.error("Error:", error);
-            filmesGrid.innerHTML = "<p>Ocorreu um erro ao buscar os filmes. Por favor, tente novamente mais tarde.</p>";
+            filmesGrid.innerHTML = "<p>Ocorreu um erro ao buscar os filmes.</p>";
         }
     }
     function renderizarMidia(filmes) {
@@ -30,34 +30,30 @@ const IMAGE_URL = "https://image.tmdb.org/t/p/w500";
         filmes.forEach(filme => {
             const card = document.createElement("div");
             card.classList.add("card");
-
-            const imagem = filme.poster_path 
-                ? $IMAGE_URL + filme.poster_path
+            const imageURL = filme.poster_path
+                ? IMAGE_URL + filme.poster_path
                 : "";
-            if(filme.title){
+            if (filme.title) {
                 card.innerHTML = `
-                <img src="${image}" alt="${filme.title}">
+                <img src="${imageURL}" alt="${filme.title}">
                 <h3>${filme.title}</h3>
                 <p>${filme.overview}</p>
-                `;
-            }else{
-                card.innerHTML= `
-                <img src="${imagem}" alt="${filme.name}">
+            `;
+            } else {
+                card.innerHTML = `
+                <img src="${imageURL}" alt="${filme.title}">
                 <h3>${filme.name}</h3>
                 <p>${filme.overview}</p>
-                `;
+            `;
             }
-            card.addEventListener("click", () => {
-                window.location.href = `pages/detalhe.html?id=${filme.id}&type=${filme.media_type}`
-            });
             filmesGrid.appendChild(card);
         });
     }
-     function buscarFilme() {
+     function buscaFilme() {
         const url = `${BASE_URL}/trending/movie/week?api_key=${API_KEY}&language=pt-BR`;
         requisicao(url);
     }
-    function buscarSerie(){
+    function buscaSerie(){
         const url = `${BASE_URL}/trending/tv/week?api_key=${API_KEY}&language=pt-BR`;
         requisicao (url);
     }
@@ -81,6 +77,6 @@ const IMAGE_URL = "https://image.tmdb.org/t/p/w500";
         });
         document.addEventListener("DOMContentLoaded", carregarTendenciasGeral);
         inicio.addEventListener("click", carregarTendenciasGeral);
-        filmes.addEventListener("click", buscarFilme);
-        series.addEventListener("click", buscarSerie);
+        filmes.addEventListener("click", buscaFilme);
+        series.addEventListener("click", buscaSerie);
     
